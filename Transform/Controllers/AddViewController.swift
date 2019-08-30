@@ -8,6 +8,7 @@
 
 import UIKit
 import FontAwesome_swift
+import Firebase
 
 class AddViewController: UIViewController {
     
@@ -34,6 +35,12 @@ class AddViewController: UIViewController {
     }
 
     @IBAction func didSaveButton(_ sender: UIButton) {
+//        if textTitle.text!.isEmpty{
+//            return
+//        }
+//        
+//        let db = Firestore.firebase()
+        
     }
     
 }
