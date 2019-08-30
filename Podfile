@@ -10,4 +10,6 @@ target 'Transform' do
 pod 'Firebase/Analytics'
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
+pod 'FontAwesome.swift'
+pod 'RLBAlertsPickers', '~> 1.1.1'
 end

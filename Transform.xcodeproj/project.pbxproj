@@ -3,29 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		DC777134116CE347D38393F0 /* Pods_Transform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED50CB38B07E52C01FF7E8EC /* Pods_Transform.framework */; };
 		DDB9E59E2316277700C9DC77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E59D2316277700C9DC77 /* AppDelegate.swift */; };
-		DDB9E5A02316277700C9DC77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E59F2316277700C9DC77 /* ViewController.swift */; };
-		DDB9E5A32316277700C9DC77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB9E5A12316277700C9DC77 /* Main.storyboard */; };
 		DDB9E5A52316277900C9DC77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB9E5A42316277900C9DC77 /* Assets.xcassets */; };
 		DDB9E5A82316277900C9DC77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB9E5A62316277900C9DC77 /* LaunchScreen.storyboard */; };
 		DDB9E5B023162D9900C9DC77 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB9E5AF23162D9900C9DC77 /* GoogleService-Info.plist */; };
+		DDB9E5B4231640AE00C9DC77 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5B3231640AE00C9DC77 /* HomeViewController.swift */; };
+		DDB9E5B723166D9500C9DC77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB9E5B523166D9500C9DC77 /* Main.storyboard */; };
+		DDB9E5B92317F06B00C9DC77 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5B82317F06B00C9DC77 /* AddViewController.swift */; };
+		DDB9E5BB2318BBDE00C9DC77 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5BA2318BBDE00C9DC77 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		182A256791C0882CE94BBEEF /* Pods-Transform.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transform.debug.xcconfig"; path = "Target Support Files/Pods-Transform/Pods-Transform.debug.xcconfig"; sourceTree = "<group>"; };
 		DDB9E59A2316277700C9DC77 /* Transform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB9E59D2316277700C9DC77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDB9E59F2316277700C9DC77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DDB9E5A22316277700C9DC77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDB9E5A42316277900C9DC77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDB9E5A72316277900C9DC77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDB9E5A92316277900C9DC77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDB9E5AF23162D9900C9DC77 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DDB9E5B3231640AE00C9DC77 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DDB9E5B623166D9500C9DC77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Transform/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DDB9E5B82317F06B00C9DC77 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		DDB9E5BA2318BBDE00C9DC77 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		ED50CB38B07E52C01FF7E8EC /* Pods_Transform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F168BC74C59E834474EC1E69 /* Pods-Transform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transform.release.xcconfig"; path = "Target Support Files/Pods-Transform/Pods-Transform.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,7 +60,6 @@
 				182A256791C0882CE94BBEEF /* Pods-Transform.debug.xcconfig */,
 				F168BC74C59E834474EC1E69 /* Pods-Transform.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,15 +84,33 @@
 		DDB9E59C2316277700C9DC77 /* Transform */ = {
 			isa = PBXGroup;
 			children = (
+				DDB9E5B22316401F00C9DC77 /* Controllers */,
+				DDB9E5B12316400400C9DC77 /* Objects */,
 				DDB9E59D2316277700C9DC77 /* AppDelegate.swift */,
-				DDB9E59F2316277700C9DC77 /* ViewController.swift */,
-				DDB9E5A12316277700C9DC77 /* Main.storyboard */,
 				DDB9E5A42316277900C9DC77 /* Assets.xcassets */,
+				DDB9E5B523166D9500C9DC77 /* Main.storyboard */,
 				DDB9E5A62316277900C9DC77 /* LaunchScreen.storyboard */,
 				DDB9E5A92316277900C9DC77 /* Info.plist */,
 				DDB9E5AF23162D9900C9DC77 /* GoogleService-Info.plist */,
 			);
 			path = Transform;
+			sourceTree = "<group>";
+		};
+		DDB9E5B12316400400C9DC77 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				DDB9E5BA2318BBDE00C9DC77 /* File.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		DDB9E5B22316401F00C9DC77 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DDB9E5B3231640AE00C9DC77 /* HomeViewController.swift */,
+				DDB9E5B82317F06B00C9DC77 /* AddViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,7 +176,7 @@
 				DDB9E5B023162D9900C9DC77 /* GoogleService-Info.plist in Resources */,
 				DDB9E5A82316277900C9DC77 /* LaunchScreen.storyboard in Resources */,
 				DDB9E5A52316277900C9DC77 /* Assets.xcassets in Resources */,
-				DDB9E5A32316277700C9DC77 /* Main.storyboard in Resources */,
+				DDB9E5B723166D9500C9DC77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,28 +229,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB9E5A02316277700C9DC77 /* ViewController.swift in Sources */,
 				DDB9E59E2316277700C9DC77 /* AppDelegate.swift in Sources */,
+				DDB9E5BB2318BBDE00C9DC77 /* File.swift in Sources */,
+				DDB9E5B4231640AE00C9DC77 /* HomeViewController.swift in Sources */,
+				DDB9E5B92317F06B00C9DC77 /* AddViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DDB9E5A12316277700C9DC77 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDB9E5A22316277700C9DC77 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DDB9E5A62316277900C9DC77 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DDB9E5A72316277900C9DC77 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DDB9E5B523166D9500C9DC77 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDB9E5B623166D9500C9DC77 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
