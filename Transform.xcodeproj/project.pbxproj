@@ -16,6 +16,10 @@
 		DDB9E5B723166D9500C9DC77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB9E5B523166D9500C9DC77 /* Main.storyboard */; };
 		DDB9E5B92317F06B00C9DC77 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5B82317F06B00C9DC77 /* AddViewController.swift */; };
 		DDB9E5BB2318BBDE00C9DC77 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5BA2318BBDE00C9DC77 /* File.swift */; };
+		DDB9E5BD2318D2DA00C9DC77 /* message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5BC2318D2DA00C9DC77 /* message.swift */; };
+		DDB9E5BF231CB2A800C9DC77 /* HubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5BE231CB2A800C9DC77 /* HubViewController.swift */; };
+		DDB9E5C1231CB60800C9DC77 /* ThingSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5C0231CB60800C9DC77 /* ThingSideViewController.swift */; };
+		DDB9E5C3231CB65D00C9DC77 /* YourSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5C2231CB65D00C9DC77 /* YourSideViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		DDB9E5B623166D9500C9DC77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Transform/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDB9E5B82317F06B00C9DC77 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		DDB9E5BA2318BBDE00C9DC77 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		DDB9E5BC2318D2DA00C9DC77 /* message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = message.swift; sourceTree = "<group>"; };
+		DDB9E5BE231CB2A800C9DC77 /* HubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewController.swift; sourceTree = "<group>"; };
+		DDB9E5C0231CB60800C9DC77 /* ThingSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingSideViewController.swift; sourceTree = "<group>"; };
+		DDB9E5C2231CB65D00C9DC77 /* YourSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSideViewController.swift; sourceTree = "<group>"; };
 		ED50CB38B07E52C01FF7E8EC /* Pods_Transform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F168BC74C59E834474EC1E69 /* Pods-Transform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transform.release.xcconfig"; path = "Target Support Files/Pods-Transform/Pods-Transform.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB9E5BA2318BBDE00C9DC77 /* File.swift */,
+				DDB9E5BC2318D2DA00C9DC77 /* message.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -109,6 +118,9 @@
 			children = (
 				DDB9E5B3231640AE00C9DC77 /* HomeViewController.swift */,
 				DDB9E5B82317F06B00C9DC77 /* AddViewController.swift */,
+				DDB9E5BE231CB2A800C9DC77 /* HubViewController.swift */,
+				DDB9E5C0231CB60800C9DC77 /* ThingSideViewController.swift */,
+				DDB9E5C2231CB65D00C9DC77 /* YourSideViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -230,9 +242,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB9E59E2316277700C9DC77 /* AppDelegate.swift in Sources */,
+				DDB9E5C1231CB60800C9DC77 /* ThingSideViewController.swift in Sources */,
+				DDB9E5C3231CB65D00C9DC77 /* YourSideViewController.swift in Sources */,
 				DDB9E5BB2318BBDE00C9DC77 /* File.swift in Sources */,
 				DDB9E5B4231640AE00C9DC77 /* HomeViewController.swift in Sources */,
 				DDB9E5B92317F06B00C9DC77 /* AddViewController.swift in Sources */,
+				DDB9E5BF231CB2A800C9DC77 /* HubViewController.swift in Sources */,
+				DDB9E5BD2318D2DA00C9DC77 /* message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

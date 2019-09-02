@@ -8,6 +8,8 @@
 
 import UIKit
 import FontAwesome_swift
+import RevealingSplashView
+import Firebase
 
 class HomeViewController: UIViewController {
     
@@ -21,6 +23,18 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //        revealingSplashViewのパンダ
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "PandaMark2")!,iconInitialSize: CGSize(width: 300, height: 300), backgroundColor: UIColor(red: 120, green: 123, blue: 201, alpha: 0.5))
+        
+        revealingSplashView.animationType = .rotateOut
+        
+        self.view.addSubview(revealingSplashView)
+        
+        revealingSplashView.startAnimation(){
+            print("Completed")
+        }
+        
 //        探すボタンの設定
         search.titleLabel?.font = UIFont.fontAwesome(ofSize: 25, style: .solid)
         search.titleLabel?.textColor = UIColor.init(red: 121/255, green: 120/255, blue: 201/255, alpha: 100/100)
@@ -30,6 +44,11 @@ class HomeViewController: UIViewController {
         addData.titleLabel?.textColor = UIColor.init(red: 121/225, green: 120/225, blue: 201/255, alpha: 100/100)
         addData.setTitle(String.fontAwesomeIcon(name: .folderPlus), for: .normal)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let db = Firestore.firestore()
     }
     
     @IBAction func addData(_ sender: UIButton) {
