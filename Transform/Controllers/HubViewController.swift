@@ -10,8 +10,19 @@ import UIKit
 
 class HubViewController: UIViewController {
 
+    @IBOutlet weak var hubImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    @IBAction func postSNS(_ sender: UIButton) {
+        
+        let data = [hubImage.image!]
+        
+        let controller = UIActivityViewController(activityItems: data, applicationActivities: nil)
+        
+        present(controller, animated: true, completion: nil)
+    }
+    
 }

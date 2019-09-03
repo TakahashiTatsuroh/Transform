@@ -10,10 +10,13 @@ import UIKit
 import FontAwesome_swift
 import RevealingSplashView
 import Firebase
+import FirebaseFirestore
 
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var files:[File] = []
     
 //    探すボタン
     @IBOutlet weak var search: UIButton!
@@ -47,13 +50,40 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+
         let db = Firestore.firestore()
+            db.collection("file").document()
+
     }
-    
+
     @IBAction func addData(_ sender: UIButton) {
         performSegue(withIdentifier: "toAdd", sender: nil)
     }
-    
+//
+//}
 
+
+//extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//
+//        return files.count
+//
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+//
+//        let file = files[indexPath.row]
+//
+//        let imageView = cell.contentView.viewWithTag(1) as! UIImageView
+//
+//        let cellImage = UIImage(data: files[indexPath.row].image)
+//
+//        imageView.image = cellImage
+//
+//    }
+//
 }
+

@@ -10,6 +10,7 @@ import UIKit
 import FontAwesome_swift
 import Firebase
 import FirebaseFirestore
+import SCLAlertView
 
 class AddViewController: UIViewController {
     
@@ -39,6 +40,22 @@ class AddViewController: UIViewController {
         didSaveButton.titleLabel?.textColor = UIColor.init(red: 121/225, green: 120/225, blue: 201/255, alpha: 100/100)
         didSaveButton.setTitle(String.fontAwesomeIcon(name: .download), for: .normal)
     }
+    
+    @IBAction func addView(_ sender: UIButton) {
+        
+        let alertView = SCLAlertView()
+        alertView.addButton("Camera") {
+            print("Camera button tapped")
+        }
+        alertView.addButton("Album") {
+            print("Album button tapped")
+        }
+        alertView.showSuccess("source", subTitle: "選んでください")
+        
+//        alertView = UIColor.init(displayP3Red: 120, green: 123, blue: 201, alpha: 1)
+
+    }
+    
 
     @IBAction func didSaveButton(_ sender: UIButton) {
         if textTitle.text!.isEmpty{
@@ -64,6 +81,7 @@ class AddViewController: UIViewController {
             }
         }
         
+//       ボタンを押した後に前画面に戻る
         navigationController?.popViewController(animated: true)
     }
     

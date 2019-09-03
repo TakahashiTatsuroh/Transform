@@ -13,4 +13,6 @@ pod 'Firebase/Analytics'
 pod 'Firebase/Firestore'
 pod 'FontAwesome.swift'
 pod 'RevealingSplashView'
+pod 'SCLAlertView'
+pod 'MessageKit'
 end
