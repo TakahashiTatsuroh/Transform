@@ -12,7 +12,7 @@ import Firebase
 import FirebaseFirestore
 import SCLAlertView
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var addView: UIButton!
     
@@ -44,18 +44,43 @@ class AddViewController: UIViewController {
     @IBAction func addView(_ sender: UIButton) {
         
         let alertView = SCLAlertView()
-        alertView.addButton("Camera") {
-            print("Camera button tapped")
-        }
-        alertView.addButton("Album") {
-            print("Album button tapped")
-        }
-        alertView.showSuccess("source", subTitle: "選んでください")
+//        カメラ
+            alertView.addButton("Camera") {
+                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    let cameraPicker = UIImagePickerController()
+                    cameraPicker.sourceType = .camera
+                    cameraPicker.delegate = self
+                    self.present(cameraPicker, animated: true, completion: nil)
+                } else {
+                    print("カメラが使用できません")
+                }
+            }
+//        アルバム
+            alertView.addButton("Album") {
+                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.sourceType = .photoLibrary
+                    imagePicker.delegate = self
+                    self.present(imagePicker, animated: true, completion: nil)
+                } else {
+                    print("フォトライブラリが使用できません")
+                }
+            }
         
-//        alertView = UIColor.init(displayP3Red: 120, green: 123, blue: 201, alpha: 1)
+        
+        alertView.showEdit("source", subTitle: "選んでください")
 
     }
     
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.originalImage] as? UIImage {
+            imageView.image = pickedImage
+            imageView.contentMode = .scaleAspectFit
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func didSaveButton(_ sender: UIButton) {
         if textTitle.text!.isEmpty{
@@ -86,5 +111,3 @@ class AddViewController: UIViewController {
     }
     
 }
-
-

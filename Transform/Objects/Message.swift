@@ -7,13 +7,34 @@
 //
 
 
-import Foundation
+import MessageKit
 
-struct Message {
+class Message {
     
-    // メッセージのID（Firestoreで使用するキーを入れる）
-    let documentId: String
+    let user: ChatUser
     
-    // 送信されたメッセージ
     let text: String
+    // メッセージのID（Firestoreで使用するキーを入れる）
+    let messageId: String
+    
+    let sentDate:Date
+    
+    init(user: ChatUser, text: String, messageId: String, sentDate: Date) {
+        self.user = user
+        self.text = text
+        self.messageId = messageId
+        self.sentDate = sentDate
+    }
+}
+
+extension Message: MessageType {
+    var kind: MessageKind {
+        return.text(text)
+    }
+    
+    
+    var sender: SenderType {
+        return Sender(id: user.senderId, displayName: user.displayName)
+    }
+    
 }

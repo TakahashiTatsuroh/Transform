@@ -20,6 +20,8 @@
 		DDB9E5BF231CB2A800C9DC77 /* HubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5BE231CB2A800C9DC77 /* HubViewController.swift */; };
 		DDB9E5C1231CB60800C9DC77 /* ThingSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5C0231CB60800C9DC77 /* ThingSideViewController.swift */; };
 		DDB9E5C3231CB65D00C9DC77 /* YourSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9E5C2231CB65D00C9DC77 /* YourSideViewController.swift */; };
+		DDFF62A8231F624D006B4F98 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF62A7231F624D006B4F98 /* ChatUser.swift */; };
+		DDFF62AA2320A5B4006B4F98 /* GoogleSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF62A92320A5B4006B4F98 /* GoogleSignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		DDB9E5BE231CB2A800C9DC77 /* HubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewController.swift; sourceTree = "<group>"; };
 		DDB9E5C0231CB60800C9DC77 /* ThingSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingSideViewController.swift; sourceTree = "<group>"; };
 		DDB9E5C2231CB65D00C9DC77 /* YourSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSideViewController.swift; sourceTree = "<group>"; };
+		DDFF62A7231F624D006B4F98 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
+		DDFF62A92320A5B4006B4F98 /* GoogleSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInViewController.swift; sourceTree = "<group>"; };
 		ED50CB38B07E52C01FF7E8EC /* Pods_Transform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F168BC74C59E834474EC1E69 /* Pods-Transform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transform.release.xcconfig"; path = "Target Support Files/Pods-Transform/Pods-Transform.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +113,7 @@
 			children = (
 				DDB9E5BA2318BBDE00C9DC77 /* File.swift */,
 				DDB9E5BC2318D2DA00C9DC77 /* Message.swift */,
+				DDFF62A7231F624D006B4F98 /* ChatUser.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 				DDB9E5BE231CB2A800C9DC77 /* HubViewController.swift */,
 				DDB9E5C0231CB60800C9DC77 /* ThingSideViewController.swift */,
 				DDB9E5C2231CB65D00C9DC77 /* YourSideViewController.swift */,
+				DDFF62A92320A5B4006B4F98 /* GoogleSignInViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -137,6 +143,7 @@
 				DDB9E5972316277700C9DC77 /* Frameworks */,
 				DDB9E5982316277700C9DC77 /* Resources */,
 				ABEC8372DB50863197FA15D6 /* [CP] Embed Pods Frameworks */,
+				A5961A6D06881BC2EC081E72 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,6 +224,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A5961A6D06881BC2EC081E72 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Transform/Pods-Transform-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Transform/Pods-Transform-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Transform/Pods-Transform-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		ABEC8372DB50863197FA15D6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,8 +268,10 @@
 				DDB9E59E2316277700C9DC77 /* AppDelegate.swift in Sources */,
 				DDB9E5C1231CB60800C9DC77 /* ThingSideViewController.swift in Sources */,
 				DDB9E5C3231CB65D00C9DC77 /* YourSideViewController.swift in Sources */,
+				DDFF62A8231F624D006B4F98 /* ChatUser.swift in Sources */,
 				DDB9E5BB2318BBDE00C9DC77 /* File.swift in Sources */,
 				DDB9E5B4231640AE00C9DC77 /* HomeViewController.swift in Sources */,
+				DDFF62AA2320A5B4006B4F98 /* GoogleSignInViewController.swift in Sources */,
 				DDB9E5B92317F06B00C9DC77 /* AddViewController.swift in Sources */,
 				DDB9E5BF231CB2A800C9DC77 /* HubViewController.swift in Sources */,
 				DDB9E5BD2318D2DA00C9DC77 /* Message.swift in Sources */,
