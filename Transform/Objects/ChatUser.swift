@@ -14,8 +14,12 @@ class ChatUser: SenderType {
     
     var displayName: String
     
-    init(senderId: String, displayName: String) {
+    let photoUrl: String
+    
+    
+    init(senderId: String, displayName: String, photoUrl: String) {
         self.senderId = senderId
         self.displayName = displayName
+        self.photoUrl = photoUrl
     }
 }
