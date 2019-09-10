@@ -39,7 +39,7 @@ class ThingSideViewController: MessagesViewController {
         
         // messagesコレクションを監視する
         
-        db.collection("file").document(file.documentId).collection("messages").addSnapshotListener { (querySnapshot, error) in
+        db.collection("file").document(file.documentId).collection("messages").order(by: "sentDate").addSnapshotListener { (querySnapshot, error) in
             
             guard let documents = querySnapshot?.documents else {
                 return
@@ -81,20 +81,21 @@ extension ThingSideViewController: MessagesDataSource {
     
     func currentSender() -> SenderType {
         // user情報を取得
-        let user = Auth.auth().currentUser!
-        let id = user.uid
-        let name = user.displayName
         
-        return Sender(id: user.uid, displayName: user.displayName!)
+        let userThing = Auth.auth().currentUser!
+        let idThing = userThing.uid
+        let nameThing = userThing.displayName
+        
+        return Sender(id: "thing", displayName: nameThing!)
     }
     
     func otherSender() -> Sender {
         
-        let userYou = Auth.auth().currentUser!
-        let idYou = userYou.uid
-        let nameYou = userYou.displayName
+        let user = Auth.auth().currentUser!
+        let id = user.uid
+        let name = user.displayName
         
-        return Sender(id: idYou, displayName: nameYou!)
+        return Sender(id: id, displayName: name!)
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
@@ -119,9 +120,9 @@ extension ThingSideViewController: InputBarAccessoryViewDelegate {
         let db = Firestore.firestore()
         
         db.collection("file").document(file.documentId).collection("messages").addDocument(data: [
-            "uid": user.uid,
+            "uid": "thing",
             "name": user.displayName as Any,
-            "photoUrl": user.photoURL?.absoluteString as Any,
+            "photoUrl": "",
             "text": text,
             "sentDate": Date()
             ])
@@ -137,7 +138,7 @@ extension ThingSideViewController: MessagesDisplayDelegate {
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ?
             UIColor(red: 121/255, green: 123/255, blue: 201/255, alpha: 1) :
-            UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+            UIColor(red: 234/255, green: 225/255, blue: 242/255, alpha: 1)
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
@@ -148,19 +149,28 @@ extension ThingSideViewController: MessagesDisplayDelegate {
         
         let url = URL(string: user.photoUrl)
         
-        do {
-            //            urlを元に画像データを取得
-            let data = try Data(contentsOf: url!)
-            //            取得したデータを元に、ImageViewを取得
-            let image = UIImage(data: data)
-            //            imageviewと名前の元にアバターアイコン作成
-            let avatar = Avatar(image: image)
+        
+        if user.photoUrl == "" {
+            let avatar = Avatar(image: UIImage(data: file.picture))
             //            アバターアイコンを画面に設置
             avatarView.set(avatar: avatar)
             return
-        } catch let err {
-            print(err.localizedDescription)
+        } else {
+            do {
+                //            urlを元に画像データを取得
+                let data = try Data(contentsOf: url!)
+                //            取得したデータを元に、ImageViewを取得
+                let image = UIImage(data: data)
+                //            imageviewと名前の元にアバターアイコン作成
+                let avatar = Avatar(image: image)
+                //            アバターアイコンを画面に設置
+                avatarView.set(avatar: avatar)
+                return
+            } catch let err {
+                print(err.localizedDescription)
+            }
         }
+        
     }
 }
 

@@ -90,6 +90,24 @@ class HomeViewController: UIViewController {
             db.collection("file").document()
 
     }
+    
+    @IBAction func personal(_ sender: UIButton) {
+//        ログアウトボタン
+        let alert = UIAlertController(title: "logout?", message: "", preferredStyle: .alert)
+        present(alert, animated: true, completion: nil)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (UIAlertAction) in
+            print("はいが押されました")
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: .destructive) { (UIAlertAction) in
+            print("いいえが押されました")
+        }
+        alert.addAction(yesAction)
+        
+        alert.addAction(noAction)
+    }
+    
 
     @IBAction func addData(_ sender: UIButton) {
         performSegue(withIdentifier: "toAdd", sender: nil)
@@ -134,7 +152,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             
             let hubfile: HubViewController = (segue.destination as? HubViewController)!
             
-            hubfile.file = sender as? File
+            hubfile.image = sender as? File
         }
     }
 

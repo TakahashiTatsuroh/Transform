@@ -8,23 +8,23 @@
 
 import UIKit
 import SCLAlertView
+import Firebase
 
 class HubViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var hubImage: UIImageView!
     
-    var file: File!
+    var image: File!
     
     @IBOutlet weak var hubTextTitle: UITextField!
     
-    @IBOutlet weak var hubTextView: UITextView!
-    
+    @IBOutlet weak var hubTextCategory: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let img = UIImage(data: file.picture)
+        let img = UIImage(data: image.picture)
         hubImage.image = img
         
         hubImage.contentMode = UIView.ContentMode.scaleAspectFit
@@ -38,6 +38,14 @@ class HubViewController: UIViewController, UIImagePickerControllerDelegate, UINa
             
             hubImage.file = sender as? File
         }
+        
+        if (segue.identifier == "toYourSide") {
+            
+            let hubImage: YourSideViewController = (segue.destination as? YourSideViewController)!
+            
+            hubImage.file = sender as? File
+        }
+
     }
     
     @IBAction func changeImage(_ sender: UIButton) {
@@ -81,11 +89,11 @@ class HubViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     }
     
     @IBAction func thingButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "toThingSide", sender: file)
+        performSegue(withIdentifier: "toThingSide", sender: image)
     }
     
     @IBAction func youButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "toYourSide", sender: file)
+        performSegue(withIdentifier: "toYourSide", sender: image)
     }
     
 
@@ -93,26 +101,11 @@ class HubViewController: UIViewController, UIImagePickerControllerDelegate, UINa
 
     @IBAction func postSNS(_ sender: UIButton) {
         
-        let data = [hubImage.image!, hubTextView.text!] as [Any]
+        let data = [hubImage.image!, hubTextTitle.text!] as [Any]
         
         let controller = UIActivityViewController(activityItems: data, applicationActivities: nil)
         
         present(controller, animated: true, completion: nil)
     }
     
-    
-    
 }
-
-//extension HubViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return files.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        <#code#>
-//    }
-//
-//
-//}

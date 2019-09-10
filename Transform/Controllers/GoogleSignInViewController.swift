@@ -39,7 +39,7 @@ class GoogleSignInViewController: UIViewController, GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "PandaMark2")!,iconInitialSize: CGSize(width: 300, height: 300), backgroundColor: UIColor(red: 120, green: 123, blue: 201, alpha: 0.5))
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "PandaMark2")!,iconInitialSize: CGSize(width: 500, height: 500), backgroundColor: UIColor(red: 120, green: 123, blue: 201, alpha: 0.5))
         
         revealingSplashView.animationType = .rotateOut
         
