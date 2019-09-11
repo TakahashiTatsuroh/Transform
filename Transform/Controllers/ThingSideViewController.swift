@@ -83,7 +83,7 @@ extension ThingSideViewController: MessagesDataSource {
         // user情報を取得
         
         let userThing = Auth.auth().currentUser!
-        let idThing = userThing.uid
+        _ = userThing.uid
         let nameThing = userThing.displayName
         
         return Sender(id: "thing", displayName: nameThing!)
@@ -106,6 +106,29 @@ extension ThingSideViewController: MessagesDataSource {
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         
         return messageList.count
+    }
+    
+    func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        let isExists = messageList.indices.contains(indexPath.section - 1)
+        
+        if !isExists {
+            return NSAttributedString(
+                string: MessageKitDateFormatter.shared.string(from: message.sentDate),
+                attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10),
+                             NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+            )
+        }
+        
+        let beforeMessage = messageList[indexPath.section - 1]
+        
+        if !Calendar.current.isDate(beforeMessage.sentDate, inSameDayAs: message.sentDate) {
+            return NSAttributedString(
+                string: MessageKitDateFormatter.shared.string(from: message.sentDate),
+                attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10),
+                             NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+            )
+        }
+        return nil
     }
 
 
@@ -138,7 +161,12 @@ extension ThingSideViewController: MessagesDisplayDelegate {
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ?
             UIColor(red: 121/255, green: 123/255, blue: 201/255, alpha: 1) :
-            UIColor(red: 234/255, green: 225/255, blue: 242/255, alpha: 1)
+            UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+    }
+    
+    func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+        let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
+        return .bubbleTail(corner, .pointedEdge)
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
@@ -175,7 +203,28 @@ extension ThingSideViewController: MessagesDisplayDelegate {
 }
 
 extension ThingSideViewController: MessagesLayoutDelegate {
+    func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        let isExists = messageList.indices.contains(indexPath.section - 1)
+        
+        if !isExists {
+            return 10
+        }
+        
+        let beforeMessage = messageList[indexPath.section - 1]
+        
+        if !Calendar.current.isDate(beforeMessage.sentDate, inSameDayAs: message.sentDate) {
+            return 10
+        }
+        return 0
+    }
     
+    func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 5
+    }
+    
+    func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 5
+    }
 }
 
 extension ThingSideViewController: MessageCellDelegate {
