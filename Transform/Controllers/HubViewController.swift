@@ -14,36 +14,47 @@ class HubViewController: UIViewController, UIImagePickerControllerDelegate, UINa
 
     @IBOutlet weak var hubImage: UIImageView!
     
-    var image: File!
+    var file: File!
     
     @IBOutlet weak var hubTextTitle: UITextField!
     
     @IBOutlet weak var hubTextCategory: UITextField!
     
+    @IBOutlet weak var hubDate: UIDatePicker!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let img = UIImage(data: image.picture)
+        let img = UIImage(data: file.picture)
         hubImage.image = img
         
         hubImage.contentMode = UIView.ContentMode.scaleAspectFit
+        
+        hubTextTitle.text = file.name
+        
+        hubTextCategory.text = file.category
+        
+        hubDate.date = file.date
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "toThingSide") {
             
-            let hubImage: ThingSideViewController = (segue.destination as? ThingSideViewController)!
+            let hubfile: ThingSideViewController = (segue.destination as? ThingSideViewController)!
             
-            hubImage.file = sender as? File
+            hubfile.file = sender as? File
         }
         
         if (segue.identifier == "toYourSide") {
             
-            let hubImage: YourSideViewController = (segue.destination as? YourSideViewController)!
+            let hubfile: YourSideViewController = (segue.destination as? YourSideViewController)!
             
-            hubImage.file = sender as? File
+            hubfile.file = sender as? File
         }
 
     }
@@ -89,14 +100,49 @@ class HubViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     }
     
     @IBAction func thingButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "toThingSide", sender: image)
+        performSegue(withIdentifier: "toThingSide", sender: file)
     }
     
     @IBAction func youButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "toYourSide", sender: image)
+        performSegue(withIdentifier: "toYourSide", sender: file)
     }
     
-
+    @IBAction func upData(_ sender: UIButton) {
+        if hubTextTitle.text!.isEmpty{
+            return
+        }
+        
+        let db = Firestore.firestore()
+        
+        db.collection("file").document(file.documentId).setData([
+            "picture": (hubImage.image?.jpegData(compressionQuality: 0.1))!,
+            "name": hubTextTitle.text!,
+            "category": hubTextCategory.text!,
+            "date": hubDate.date,
+            "createdAt": FieldValue.serverTimestamp()
+            
+        ]) { err in
+            
+            if let err = err {
+                print("updataに失敗しました")
+                print(err)
+            } else {
+                let alert = UIAlertController(title: "UpData", message: "", preferredStyle: .alert)
+                print("updataしました：\(self.hubTextTitle.text!)")
+                
+                
+                let yesAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+                    print("はいが押されました")
+                }
+                alert.addAction(yesAction)
+                
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+        
+    }
     
 
     @IBAction func postSNS(_ sender: UIButton) {

@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
     
     
 //    探すボタン
-    @IBOutlet weak var search: UIButton!
+
     
 //    パーソナリティボタン
     @IBOutlet weak var personal: UIButton!
@@ -68,11 +68,6 @@ class HomeViewController: UIViewController {
             self.files = files
         }
         
-        
-//        探すボタンの設定
-        search.titleLabel?.font = UIFont.fontAwesome(ofSize: 25, style: .solid)
-        search.titleLabel?.textColor = UIColor.init(red: 121/255, green: 120/255, blue: 201/255, alpha: 100/100)
-        search.setTitle(String.fontAwesomeIcon(name: .search), for: .normal)
 //        追加ボタンの設定
         addData.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .solid)
         addData.titleLabel?.textColor = UIColor.init(red: 121/225, green: 120/225, blue: 201/255, alpha: 100/100)
@@ -98,6 +93,11 @@ class HomeViewController: UIViewController {
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (UIAlertAction) in
             print("はいが押されました")
+            
+            GIDSignIn.sharedInstance()?.signOut()
+            
+        let GoogleSignInViewController = self.storyboard?.instantiateViewController(withIdentifier: "GoogleSignInViewController") as! GoogleSignInViewController
+            self.present(GoogleSignInViewController, animated: true, completion: nil)
         }
         
         let noAction = UIAlertAction(title: "No", style: .destructive) { (UIAlertAction) in
@@ -152,7 +152,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             
             let hubfile: HubViewController = (segue.destination as? HubViewController)!
             
-            hubfile.image = sender as? File
+            hubfile.file = sender as? File
         }
     }
 
