@@ -69,7 +69,7 @@ class HomeViewController: UIViewController {
         }
         
 //        追加ボタンの設定
-        addData.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .solid)
+        addData.titleLabel?.font = UIFont.fontAwesome(ofSize: 60, style: .solid)
         addData.titleLabel?.textColor = UIColor.init(red: 121/225, green: 120/225, blue: 201/255, alpha: 100/100)
         addData.setTitle(String.fontAwesomeIcon(name: .folderPlus), for: .normal)
 //        パーソナリティーボタンの設定
@@ -128,7 +128,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
 
-        let file = files[indexPath.row]
+        _ = files[indexPath.row]
 
         let imageView = cell.contentView.viewWithTag(1) as! UIImageView
 
