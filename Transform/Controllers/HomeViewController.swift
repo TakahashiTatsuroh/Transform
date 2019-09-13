@@ -41,8 +41,10 @@ class HomeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        let user = Auth.auth().currentUser
+        
         let db = Firestore.firestore()
-        db.collection("file").addSnapshotListener { (querySnapshot, error) in
+        db.collection("file").whereField("createdUser", isEqualTo: user?.uid).addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 return
             }

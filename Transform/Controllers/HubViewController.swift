@@ -216,7 +216,7 @@ class HubViewController: UIViewController, UIImagePickerControllerDelegate, UINa
 
     @IBAction func postSNS(_ sender: UIButton) {
         
-        let data = [hubImage.image!, hubTextTitle.text!, hunTextView.text!] as [Any]
+        let data = [hubTextTitle.text!, hunTextView.text!] as [Any]
         
         let controller = UIActivityViewController(activityItems: data, applicationActivities: nil)
         

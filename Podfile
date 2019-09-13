@@ -14,4 +14,5 @@ target 'Transform' do
   pod 'MessageKit'
   pod 'GoogleSignIn'
   pod 'Firebase/Auth'
+  pod 'IQKeyboardManagerSwift'
 end

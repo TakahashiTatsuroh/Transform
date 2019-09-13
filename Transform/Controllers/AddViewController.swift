@@ -94,7 +94,8 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
             "name": textTitle.text!,
             "category": textCategory.text!,
             "date": date.date,
-            "createdAt": FieldValue.serverTimestamp()
+            "createdAt": FieldValue.serverTimestamp(),
+            "createdUser": Auth.auth().currentUser?.uid
         ]) { err in
             
             if let err = err {
