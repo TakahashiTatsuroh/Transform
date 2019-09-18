@@ -135,7 +135,7 @@ class HubViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         }
         
         
-        alertView.showEdit("source", subTitle: "選んでください")
+        alertView.showEdit("Image", subTitle: "選択して下さい", closeButtonTitle: "Cancel")
         
     }
     
@@ -188,7 +188,8 @@ class HubViewController: UIViewController, UIImagePickerControllerDelegate, UINa
                 "name": self.hubTextTitle.text!,
                 "category": self.hubTextCategory.text!,
                 "date": self.hubDate.date,
-                "createdAt": FieldValue.serverTimestamp()
+                "createdAt": FieldValue.serverTimestamp(),
+                "createdUser": Auth.auth().currentUser?.uid
             
             ]) { err in
             

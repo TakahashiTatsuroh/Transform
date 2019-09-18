@@ -67,8 +67,7 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
                 }
             }
         
-        
-        alertView.showEdit("source", subTitle: "選んでください")
+            alertView.showEdit("Image", subTitle: "選択して下さい", closeButtonTitle: "Cancel")
 
     }
     
