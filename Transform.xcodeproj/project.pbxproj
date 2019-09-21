@@ -144,6 +144,7 @@
 				DDB9E5982316277700C9DC77 /* Resources */,
 				ABEC8372DB50863197FA15D6 /* [CP] Embed Pods Frameworks */,
 				A5961A6D06881BC2EC081E72 /* [CP] Copy Pods Resources */,
+				DD2E441A2331F0F500D6187E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -257,6 +258,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Transform/Pods-Transform-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DD2E441A2331F0F500D6187E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Set the build number to the count of Git commits\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -231,7 +231,7 @@
                                                     <action selector="postSNS:" destination="4yV-Y7-fAF" eventType="touchUpInside" id="8Fg-Zc-Csv"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfm-R0-Ls5">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SNS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfm-R0-Ls5">
                                                 <rect key="frame" x="9" y="612" width="357" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Weh-kU-T5k"/>
